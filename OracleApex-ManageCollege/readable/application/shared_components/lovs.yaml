@@ -1,0 +1,61 @@
+---
+- # ====== List of Values: DEPARTMENTS.DEPT_NAME ===============
+  id: 28128918661947316187
+  identification: 
+    name: DEPARTMENTS.DEPT_NAME
+
+  subscription: 
+    version-number: 15617325956672
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: DEPARTMENTS
+
+  column-mapping: 
+    return: DEPT_ID
+    display: DEPT_NAME
+    default-sort: DEPT_NAME
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: STUDENTS.STUDENT_NAME ===============
+  id: 28129273904294613672
+  identification: 
+    name: STUDENTS.STUDENT_NAME
+
+  subscription: 
+    version-number: 15617326189464
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: STUDENTS
+
+  column-mapping: 
+    return: STUDENT_ID
+    display: STUDENT_NAME
+    default-sort: STUDENT_NAME
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: COURSES.COURSE_NAME =================
+  id: 28129274668390613673
+  identification: 
+    name: COURSES.COURSE_NAME
+
+  subscription: 
+    version-number: 15617326189469
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: COURSES
+
+  column-mapping: 
+    return: COURSE_ID
+    display: COURSE_NAME
+    default-sort: COURSE_NAME
+    sort-direction: Ascending (Nulls Last)
+

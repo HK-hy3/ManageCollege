@@ -1,0 +1,36 @@
+/* sidebar.css */
+   
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 8px 12px;
+  }
+   .sidebar {
+    width: 220px;
+    background-color: #1e3a2b;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .nav {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav li {
+    padding: 12px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .nav li:hover,
+  .nav li.active {
+    background-color: #2e4d3e;
+  }
+  

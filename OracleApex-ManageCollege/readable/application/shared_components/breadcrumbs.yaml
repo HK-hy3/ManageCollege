@@ -1,0 +1,91 @@
+---
+- # ====== Breadcrumb: Breadcrumb ==============================
+  id: 28120929011968307753
+  identification: 
+    name: Breadcrumb
+
+  entries: 
+  - # ====== Entry: Home =========================================
+    id: 28120929289871307753
+    identification: 
+      name: Home
+      page-number: 1
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Home
+
+  - # ====== Entry: StudentPage ==================================
+    id: 28128915886993316035
+    identification: 
+      name: StudentPage
+      page-number: 5
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+        page: 5 # StudentPage
+
+  - # ====== Entry: AttendancePage ===============================
+    id: 28129272620044613548
+    identification: 
+      name: AttendancePage
+      page-number: 9
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:9:&APP_SESSION.::&DEBUG.:::'
+        page: 9 # AttendancePage
+
+  - # ====== Entry: CoursesPage ==================================
+    id: 28129297595390618400
+    identification: 
+      name: CoursesPage
+      page-number: 10
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+        page: 10 # CoursesPage
+
+  - # ====== Entry: DepartmentsPage ==============================
+    id: 28129916662545639156
+    identification: 
+      name: DepartmentsPage
+      page-number: 11
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+        page: 11 # DepartmentsPage
+
+  - # ====== Entry: FacultyPage ==================================
+    id: 28129941941725644548
+    identification: 
+      name: FacultyPage
+      page-number: 12
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:12:&APP_SESSION.::&DEBUG.:::'
+        page: 12 # FacultyPage
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManageCollege - StudentPage</title>
+  <link rel="stylesheet" href="students.css"/>
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>ManageCollege</h2>
+      <ul class="nav">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li class="active"> StudentPage</li>
+        <li><a href="/attendance-page" class="nav-link">AttendancePage</a></li>
+        <li><a href="/courses-page" class="nav-link">CoursesPage</a></li>
+        <li><a href="/department-page" class="nav-link">DepartmentPage</a></li>
+        <li><a href="/faculty-page" class="nav-link">FacultyPage</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="user-info">👤 hiyagupta385@gmail.com ⌄</div>
+      </header>
+
+      <section class="form-section">
+        <h1>StudentPage</h1>
+        <div class="form-card">
+          <h2>StudentPage</h2>
+          <form id="studentForm">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="Student Name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required />
+
+            <label for="dept">Dept Id</label>
+            <select id="dept" required>
+              <option value="">Select Department</option>
+              <!-- Add dept options dynamically -->
+            </select>
+
+            <div class="form-buttons">
+              <button type="button" class="cancel-btn">Cancel</button>
+              <button type="submit" class="create-btn">Create</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Fetch departments and populate dropdown
+    async function loadDepartments() {
+      try {
+        const res = await fetch('http://localhost:5501/departments');
+        const departments = await res.json();
+        const deptSelect = document.getElementById('dept');
+
+        departments.forEach(dept => {
+          const option = document.createElement('option');
+          option.value = dept.dept_id;
+          option.textContent = `${dept.dept_id} - ${dept.dept_name}`;
+          deptSelect.appendChild(option);
+        });
+      } catch (error) {
+        console.error("Error loading departments:", error);
+      }
+    }
+
+    loadDepartments();
+  </script>
+
+  <script>
+    const form = document.getElementById('studentForm');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const dept = document.getElementById('dept').value;
+
+      // Check if form is valid
+      if (!name || !email || !dept) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      console.log("Submitting:", { name, email, dept });
+
+      const studentData = {
+        student_name: name,
+        email: email,
+        dept_id: dept
+      };
+
+      try {
+        const response = await fetch('http://localhost:5501/students', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(studentData)
+        });
+
+        if (response.ok) {
+          alert("Student added successfully!");
+          form.reset(); // clear form
+        } else {
+          const errorData = await response.json();
+          alert(`Failed to add student. Error: ${errorData.message}`);
+        }
+      } catch (error) {
+        alert("Error occurred while adding student.");
+        console.error("Error:", error);
+      }
+    });
+  </script>
+</body>
+</html>

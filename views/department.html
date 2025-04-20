@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManageCollege - DepartmentsPage</title>
+  <link rel="stylesheet" href="department.css" />
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>ManageCollege</h2>
+      <ul class="nav">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/attendance-page" class="nav-link">AttendancePage</a></li>
+        <li><a href="/student-page" class="nav-link">StudentPage</a></li>
+        <li><a href="/courses-page" class="nav-link">CoursesPage</a></li>
+        <li class="active">DepartmentPage</li>
+        <li><a href="/faculty-page" class="nav-link">FacultyPage</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <div class="user-info">👤 hiyagupta385@gmail.com ⌄</div>
+      </header>
+
+      <section class="form-section">
+        <h1>DepartmentsPage</h1>
+        <div class="form-card">
+          <h2>DepartmentsPage</h2>
+          <form id="deptForm">
+            <label for="deptName">Dept Name</label>
+            <input type="text" id="deptName" placeholder="Dept Name" required />
+
+            <div class="form-buttons">
+              <button type="button" class="cancel-btn" onclick="document.getElementById('deptForm').reset()">Cancel</button>
+              <button type="submit" class="create-btn">Create</button>
+            </div>
+          </form>
+        </div>
+
+        <ul id="deptList" class="dept-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const form = document.getElementById('deptForm');
+    const list = document.getElementById('deptList');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = { dept_name: form.deptName.value };
+
+      await fetch('http://localhost:5501/departments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      form.reset();
+      loadDepartments();
+    });
+
+    async function loadDepartments() {
+      const res = await fetch('http://localhost:5501/departments');
+      const depts = await res.json();
+      list.innerHTML = '';
+      depts.forEach(d => {
+        list.innerHTML += `
+          <li>
+            ${d.dept_name}
+            <button onclick="deleteDept(${d.dept_id})">Delete</button>
+          </li>`;
+      });
+    }
+
+    async function deleteDept(id) {
+      await fetch(`http://localhost:5501/departments/${id}`, { method: 'DELETE' });
+      loadDepartments();
+    }
+
+    loadDepartments();
+  </script>
+</body>
+</html>

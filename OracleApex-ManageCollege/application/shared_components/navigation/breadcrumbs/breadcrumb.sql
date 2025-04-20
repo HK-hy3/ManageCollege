@@ -1,0 +1,84 @@
+prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
+begin
+--   Manifest
+--     MENU: Breadcrumb
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.11.30'
+,p_release=>'24.2.2'
+,p_default_workspace_id=>28118185333235957468
+,p_default_application_id=>274321
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_HY3'
+);
+wwv_flow_imp_shared.create_menu(
+ p_id=>wwv_flow_imp.id(28120929011968307753)
+,p_name=>'Breadcrumb'
+,p_created_on=>wwv_flow_imp.dz('20250410195745Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410205353Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(28120929289871307753)
+,p_short_name=>'Home'
+,p_link=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>1
+,p_created_on=>wwv_flow_imp.dz('20250410195745Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410195745Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(28128915886993316035)
+,p_short_name=>'StudentPage'
+,p_link=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>5
+,p_created_on=>wwv_flow_imp.dz('20250410204413Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204413Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(28129272620044613548)
+,p_short_name=>'AttendancePage'
+,p_link=>'f?p=&APP_ID.:9:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>9
+,p_created_on=>wwv_flow_imp.dz('20250410204843Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204843Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(28129297595390618400)
+,p_short_name=>'CoursesPage'
+,p_link=>'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>10
+,p_created_on=>wwv_flow_imp.dz('20250410204932Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204932Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(28129916662545639156)
+,p_short_name=>'DepartmentsPage'
+,p_link=>'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>11
+,p_created_on=>wwv_flow_imp.dz('20250410205259Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410205259Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(28129941941725644548)
+,p_short_name=>'FacultyPage'
+,p_link=>'f?p=&APP_ID.:12:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>12
+,p_created_on=>wwv_flow_imp.dz('20250410205353Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410205353Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp.component_end;
+end;
+/

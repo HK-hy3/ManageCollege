@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManageCollege - FacultyPage</title>
+  <link rel="stylesheet" href="faculty.css" />
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>ManageCollege</h2>
+      <ul class="nav">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/student-page" class="nav-link">StudentPage</a></li>
+        <li><a href="/attendance-page" class="nav-link">AttendancePage</a></li>
+        <li><a href="/courses-page" class="nav-link">CoursesPage</a></li>
+        <li><a href="/department-page" class="nav-link">DepartmentPage</a></li>
+        <li class="active">FacultyPage</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <div class="user-info">👤 hiyagupta385@gmail.com ⌄</div>
+      </header>
+
+      <section class="form-section">
+        <h1>FacultyPage</h1>
+
+        <!-- Form -->
+        <div class="form-card">
+          <h2>Add New Faculty</h2>
+          <form id="teacherForm">
+            <label for="teacherName">Teacher Name</label>
+            <input type="text" id="teacherName" placeholder="Teacher Name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required />
+
+            <label for="deptId">Dept Id</label>
+            <select id="deptId" required>
+              <option value="">Select Dept</option>
+              <!-- Options will be dynamically inserted -->
+            </select>
+
+            <div class="form-buttons">
+              <button type="button" class="cancel-btn" onclick="this.closest('form').reset()">Cancel</button>
+              <button type="submit" class="create-btn">Create</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- List -->
+        <div class="list-card">
+          <h2>Faculty List</h2>
+          <ul id="teacherList"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const form = document.getElementById('teacherForm');
+    const list = document.getElementById('teacherList');
+    const deptSelect = document.getElementById('deptId');
+
+    // Load departments dynamically into the dropdown
+    async function loadDepartments() {
+      try {
+        const res = await fetch('http://localhost:5501/departments');
+        const departments = await res.json();
+        departments.forEach(dept => {
+          const option = document.createElement("option");
+          option.value = dept.dept_id;
+          option.textContent = `${dept.dept_id} - ${dept.dept_name}`;
+          deptSelect.appendChild(option);
+        });
+      } catch (err) {
+        console.error("Failed to load departments:", err);
+      }
+    }
+
+    // Load all teachers into the list
+    async function loadTeachers() {
+      try {
+        const res = await fetch('http://localhost:5501/teachers');
+        const teachers = await res.json();
+        list.innerHTML = '';
+        teachers.forEach(t => {
+          list.innerHTML += `<li>${t.teacher_name} (${t.email}) - Dept ${t.dept_id} 
+            <button onclick="deleteTeacher(${t.teacher_id})">Delete</button></li>`;
+        });
+      } catch (err) {
+        console.error("Failed to load teachers:", err);
+      }
+    }
+
+    // Handle form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        teacher_name: document.getElementById('teacherName').value,
+        email: document.getElementById('email').value,
+        dept_id: document.getElementById('deptId').value
+      };
+
+      try {
+        await fetch('http://localhost:5501/teachers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        form.reset();
+        loadTeachers();
+      } catch (err) {
+        console.error("Failed to create teacher:", err);
+      }
+    });
+
+    // Delete teacher
+    async function deleteTeacher(id) {
+      try {
+        await fetch(`http://localhost:5501/teachers/${id}`, {
+          method: 'DELETE'
+        });
+        loadTeachers();
+      } catch (err) {
+        console.error("Failed to delete teacher:", err);
+      }
+    }
+
+    // Initialize page
+    loadDepartments();
+    loadTeachers();
+  </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+prompt --application/pages/page_00010
+begin
+--   Manifest
+--     PAGE: 00010
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.11.30'
+,p_release=>'24.2.2'
+,p_default_workspace_id=>28118185333235957468
+,p_default_application_id=>274321
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_HY3'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>10
+,p_name=>'CoursesPage'
+,p_alias=>'COURSESPAGE'
+,p_step_title=>'CoursesPage'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20250410204932Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20250412190447Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_last_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(28129297001801618400)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2531463326621247859
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_imp.id(28120929011968307753)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4072363345357175094
+,p_created_on=>wwv_flow_imp.dz('20250410204932Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204932Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(28129297860321618518)
+,p_plug_name=>'CoursesPage'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>10
+,p_query_type=>'TABLE'
+,p_query_table=>'COURSES'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(28129301259487618522)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4072362960822175091
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'CHANGE'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'P10_COURSE_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(28129300282152618521)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_button_name=>'CANCEL'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4072362960822175091
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(28129301699335618522)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4072362960822175091
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'CREATE'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'P10_COURSE_ID'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(28129300898693618521)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_button_name=>'DELETE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4072362960822175091
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_alignment=>'RIGHT'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition=>'P10_COURSE_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(28129301963162618522)
+,p_branch_action=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(28129298186444618519)
+,p_name=>'P10_COURSE_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_item_source_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Course Id'
+,p_source=>'COURSE_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1609121967514267634
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(28129298510640618519)
+,p_name=>'P10_COURSE_NAME'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_item_source_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Course Name'
+,p_source=>'COURSE_NAME'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1609121967514267634
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(28129298911749618520)
+,p_name=>'P10_DEPT_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_item_source_plug_id=>wwv_flow_imp.id(28129297860321618518)
+,p_prompt=>'Dept Id'
+,p_source=>'DEPT_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT dept_name, dept_id FROM departments ORDER BY dept_name',
+''))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>1609121967514267634
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250412190447Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(28129302889997618523)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(28129297860321618518)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form CoursesPage'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>28129302889997618523
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(28129302474909618523)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(28129297860321618518)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form CoursesPage'
+,p_internal_uid=>28129302474909618523
+,p_created_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_updated_on=>wwv_flow_imp.dz('20250410204933Z')
+,p_created_by=>'HIYAGUPTA385@GMAIL.COM'
+,p_updated_by=>'HIYAGUPTA385@GMAIL.COM'
+);
+wwv_flow_imp.component_end;
+end;
+/
